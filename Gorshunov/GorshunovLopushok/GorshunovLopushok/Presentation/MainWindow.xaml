@@ -22,8 +22,8 @@
         <Style
 			TargetType="Button">
             <Setter
-				 Property="Background"
-				 Value="Transparent"/>
+                Property="Background"
+				Value="Transparent"/>
             <Setter
 				Property="Width"
 				Value="20"/>
@@ -87,16 +87,18 @@
                 <TextBox
 					Grid.Row="1"
 					Grid.Column="1"
+                    Name="SearchTextBox"
 					VerticalAlignment="Stretch"
 					HorizontalAlignment="Stretch"
 					Background="#CEFFF9"
 					BorderBrush="Black"
 					BorderThickness="1"
-					Text="{Binding Search}"
 					FontFamily="Gabriola"
 					FontSize="25"
 					Padding="5,0,0,0"
-					VerticalContentAlignment="Center"/>
+					VerticalContentAlignment="Center" 
+                    Text="{Binding Search}" 
+                    TextChanged="SearchTextBox_TextChanged"/>
 
                 <ComboBox
                     Grid.Row="1"
@@ -106,6 +108,8 @@
 					Background="#CEFFF9"
 					BorderBrush="Black"
 					BorderThickness="1"
+                    ItemsSource="{Binding SortingList}"
+                    SelectedIndex="{Binding SelectedSorting}"
 					FontFamily="Gabriola"
 					FontSize="25"
 					VerticalContentAlignment="Center"/>
@@ -118,6 +122,8 @@
 					Background="#CEFFF9"
 					BorderBrush="Black"
 					BorderThickness="1"
+                    ItemsSource="{Binding FilteringList}"
+                    SelectedIndex="{Binding SelectedFiltering}"
 					FontFamily="Gabriola"
 					FontSize="25"
 					VerticalContentAlignment="Center"/>

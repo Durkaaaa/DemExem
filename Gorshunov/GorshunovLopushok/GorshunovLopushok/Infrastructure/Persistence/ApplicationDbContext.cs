@@ -33,7 +33,7 @@ namespace GorshunovLopushok.Infrastructure.Persistence
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=PC-232-03\\SQLEXPRESS;Initial Catalog=Beseda02;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=PC-233-03\\SQLEXPRESS;Initial Catalog=Gorshunov03;Integrated Security=True");
             }
         }
 
