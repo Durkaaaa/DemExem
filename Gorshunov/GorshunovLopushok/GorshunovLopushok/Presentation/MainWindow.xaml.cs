@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using GorshunovLopushok.Presentation.ViewModels;
+using System.Windows;
 
 namespace GorshunovLopushok.Presentation
 {
@@ -10,6 +11,12 @@ namespace GorshunovLopushok.Presentation
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void SearchTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            mainWindowViewModel.Search = SearchTextBox.Text;
         }
     }
 }

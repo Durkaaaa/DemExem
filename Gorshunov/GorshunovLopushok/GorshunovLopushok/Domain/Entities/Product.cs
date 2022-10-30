@@ -1,6 +1,4 @@
-﻿using GorshunovLopushok.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,7 +10,6 @@ namespace GorshunovLopushok.Domain.Entities
     {
         private string? _image = null!;
         private decimal _cost;
-        private string _materials = null!;
         private StringBuilder _stringBuilder = new();
 
         public Product()
@@ -44,7 +41,7 @@ namespace GorshunovLopushok.Domain.Entities
         {
             get
             {
-                return $"{ProductType!.Title}"+ " | " +$"{Title}";
+                return $"{ProductType!.Title}" + " | " + $"{Title}";
             }
         }
 
@@ -68,7 +65,7 @@ namespace GorshunovLopushok.Domain.Entities
         [NotMapped]
         public string Materials
         {
-            get 
+            get
             {
                 _stringBuilder.Clear();
                 if (ProductMaterials.Count() == 0)
@@ -80,11 +77,9 @@ namespace GorshunovLopushok.Domain.Entities
                     _stringBuilder.Append(pm.Material.Title + ", ");
                 }
                 _stringBuilder.Remove(_stringBuilder.Length - 2, 2); ;
-                return _stringBuilder.ToString(); 
+                return _stringBuilder.ToString();
             }
         }
-
-
 
         public virtual ProductType? ProductType { get; set; }
         public virtual ICollection<ProductCostHistory> ProductCostHistories { get; set; }
